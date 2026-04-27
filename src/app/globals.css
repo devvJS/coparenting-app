@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+/*
+ * Quiet Harbor design tokens.
+ * Tailwind v4 uses CSS-first config — no tailwind.config.ts is required.
+ * Light tokens live on :root; dark tokens are toggled by the `.dark` class
+ * (set by next-themes with attribute="class").
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Surfaces */
+  --background: #fbf8f3;          /* Bone */
+  --foreground: #1a2e33;          /* Slate */
+  --card: #ffffff;
+  --card-foreground: #1a2e33;
+  --popover: #ffffff;
+  --popover-foreground: #1a2e33;
+  --surface: #e5ddd0;             /* Driftwood */
+
+  /* Brand */
+  --primary: #2c5f66;             /* Deep Teal */
+  --primary-foreground: #fbf8f3;
+  --primary-hover: #234c52;
+  --primary-soft: #d6e4e6;
+
+  --accent: #d4a574;              /* Warm Sand */
+  --accent-foreground: #1a2e33;
+  --accent-hover: #b88857;
+  --accent-soft: #f5e6cd;
+
+  /* Neutrals */
+  --secondary: #e5ddd0;           /* Driftwood */
+  --secondary-foreground: #1a2e33;
+  --muted: #f1ece2;
+  --muted-foreground: #574f42;
+  --subtle-foreground: #7a7160;
+
+  /* Semantic */
+  --success: #5a7a4f;
+  --success-foreground: #1a2e33;
+  --success-soft: #eff1ed;
+
+  --warning: #b07f2a;
+  --warning-foreground: #1a2e33;
+  --warning-soft: #f5eddb;
+
+  --danger: #a04e3c;
+  --danger-foreground: #fbf8f3;
+  --danger-soft: #f2e4df;
+
+  --info: #3d7b8a;
+  --info-foreground: #fbf8f3;
+  --info-soft: #e5edf0;
+
+  /* shadcn destructive alias points at danger */
+  --destructive: var(--danger);
+  --destructive-foreground: var(--danger-foreground);
+
+  /* Lines & focus */
+  --border: #e5ddd0;
+  --input: #e5ddd0;
+  --ring: #2c5f66;
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: #0f1a1d;
+  --foreground: #e5ddd0;
+  --card: #1f2d31;
+  --card-foreground: #e5ddd0;
+  --popover: #1f2d31;
+  --popover-foreground: #e5ddd0;
+  --surface: #1f2d31;
+
+  --primary: #7ba5ab;             /* Lifted teal for contrast */
+  --primary-foreground: #0f1a1d;
+  --primary-hover: #94bbc0;
+  --primary-soft: #233b40;
+
+  --accent: #d4a574;
+  --accent-foreground: #0f1a1d;
+  --accent-hover: #e0b889;
+  --accent-soft: #3a2f23;
+
+  --secondary: #1f2d31;
+  --secondary-foreground: #e5ddd0;
+  --muted: #243439;
+  --muted-foreground: #b8ad9a;
+  --subtle-foreground: #8a8170;
+
+  --success: #8aa57f;
+  --success-foreground: #0f1a1d;
+  --success-soft: #233028;
+
+  --warning: #d4a056;
+  --warning-foreground: #0f1a1d;
+  --warning-soft: #3a2f1d;
+
+  --danger: #c87864;
+  --danger-foreground: #0f1a1d;
+  --danger-soft: #3a221d;
+
+  --info: #6da7b6;
+  --info-foreground: #0f1a1d;
+  --info-soft: #1d2e34;
+
+  --destructive: var(--danger);
+  --destructive-foreground: var(--danger-foreground);
+
+  --border: #2c3a3e;
+  --input: #2c3a3e;
+  --ring: #7ba5ab;
+}
+
+@theme inline {
+  /* Map runtime CSS variables to Tailwind utility namespaces */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-surface: var(--surface);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-soft: var(--success-soft);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-danger-soft: var(--danger-soft);
+
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-soft: var(--info-soft);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: "Nunito", "Nunito Fallback", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-xs: calc(var(--radius) * 0.5);
+  --radius-sm: calc(var(--radius) * 0.75);
+  --radius-md: calc(var(--radius) * 0.875);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+}
